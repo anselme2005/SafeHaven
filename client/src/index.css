@@ -1,0 +1,131 @@
+/* ============================================================
+   index.css
+   Global styles and SafeHaven design system
+   ============================================================
+   Tailwind v4 uses @import instead of @tailwind directives.
+   All custom design tokens live inside @theme {}.
+   No tailwind.config.js file is needed or used.
+   ============================================================ */
+
+@import "tailwindcss";
+
+@theme {
+
+  /* --- Brand Colors --- */
+  --color-primary:      #4F46E5;   /* Soft Indigo — trust, safety, reliability */
+  --color-primary-dark: #4338CA;   /* Darker indigo for hover states */
+  --color-secondary:    #06B6D4;   /* Soft Cyan — clarity, support, openness */
+
+  /* --- Background Colors --- */
+  --color-bg-main:      #F8FAFC;   /* Very light gray — main page background */
+  --color-bg-soft:      #F1F5F9;   /* Slightly deeper — card and section backgrounds */
+
+  /* --- Text Colors --- */
+  --color-text-main:    #1E293B;   /* Dark Slate — primary readable text */
+  --color-text-muted:   #64748B;   /* Muted Slate — secondary text, placeholders */
+
+  /* --- Danger Color --- */
+  /* Used ONLY for: Quick Exit button, emergency notices, high urgency indicators */
+  --color-danger:       #DC2626;
+
+  /* --- Neutral --- */
+  --color-white:        #FFFFFF;
+  --color-border:       #E2E8F0;   /* Soft border for cards and inputs */
+
+  /* --- Typography --- */
+  --font-family-sans:   'Inter', sans-serif;
+
+  /* --- Border Radius --- */
+  --radius-sm:   0.375rem;   /* 6px  — small elements like badges */
+  --radius-md:   0.75rem;    /* 12px — buttons, inputs */
+  --radius-lg:   1rem;       /* 16px — cards */
+  --radius-xl:   1.5rem;     /* 24px — modals, large containers */
+
+  /* --- Shadows --- */
+  --shadow-soft: 0 2px 12px rgba(0, 0, 0, 0.06);
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.08);
+}
+
+
+/* --- Base Styles --- */
+* {
+  box-sizing: border-box;
+  margin:     0;
+  padding:    0;
+}
+
+body {
+  font-family:      var(--font-family-sans);
+  background-color: var(--color-bg-main);
+  color:            var(--color-text-main);
+  line-height:      1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* --- Smooth scrolling --- */
+html {
+  scroll-behavior: smooth;
+}
+
+/* --- Focus styles for accessibility --- */
+/* Victims navigating with keyboard must be able to see focus clearly */
+*:focus-visible {
+  outline:        2px solid var(--color-primary);
+  outline-offset: 3px;
+  border-radius:  var(--radius-sm);
+}
+
+/* ── Responsive navbar visibility ── */
+
+/* Desktop: show desktop nav, hide mobile nav */
+@media (min-width: 640px) {
+  .mobile-nav  { display: none !important; }
+  .mobile-menu { display: none !important; }
+  .desktop-nav { display: flex !important; }
+}
+
+/* Mobile: hide desktop nav, show mobile nav */
+@media (max-width: 639px) {
+  .desktop-nav { display: none !important; }
+  .mobile-nav  { display: flex !important; }
+}
+
+/* ── Button hover animations ── */
+button {
+  transition: transform 0.15s ease, opacity 0.15s ease, box-shadow 0.15s ease;
+}
+
+button:hover:not(:disabled) {
+  transform:  translateY(-1px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  opacity:    0.93;
+}
+
+button:active:not(:disabled) {
+  transform: translateY(0px);
+  box-shadow: none;
+}
+
+/* ── Card hover animations ── */
+.hover-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: default;
+}
+
+.hover-card:hover {
+  transform:  translateY(-4px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+/* ── Admin layout responsive ── */
+@media (min-width: 768px) {
+  .admin-sidebar-desktop { display: block !important; }
+  .admin-sidebar-mobile  { display: none  !important; }
+  .admin-hamburger       { display: none  !important; }
+}
+
+@media (max-width: 767px) {
+  .admin-sidebar-desktop { display: none  !important; }
+  .admin-sidebar-mobile  { display: block !important; }
+  .admin-hamburger       { display: flex  !important; }
+}
