@@ -7,9 +7,7 @@
    No tailwind.config.js file is needed or used.
    ============================================================ */
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 @theme {
 
