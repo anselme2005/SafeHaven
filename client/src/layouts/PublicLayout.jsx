@@ -47,6 +47,39 @@ const PublicLayout = ({ children }) => {
     };
   }, []);
 
+    // -- Public inactivity Timeout -- //
+    // -- If a visitor is inactive for 5 minutes on any public page, the site redirects to Google
+    // and clears all session data. This protects  victims wo may have left the site open on a shared
+    // or monitored device --//
+    useEffect(() => {
+      const TIMEOUT_MS = 5 * 60 * 1000;
+      let timer;
+
+      const resetTimer = () => {
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+          localStorage.clear();
+          sessionStorage.clear();
+          window.location.replace('https://www.google.com');
+        }, TIMEOUT_MS);
+      };
+
+      //Events that count as activity
+      const events = ['mousemove', 'mousedown', 'keypress', 'scroll', 'touchstart', 'click'];
+
+      // Attach Listeners
+      events.forEach(e => window.addEventListener(e, resetTimer, {passive: true}));
+
+      // Start the initial timer
+      resetTimer();
+
+      // Cleanup on unmount
+      return () => {
+        clearTimeout(timer);
+        events.forEach(e => window.removeEventListener(e, resetTimer));
+      };
+    }, []);
+
   const navLinkStyle = {
     color:          'var(--color-text-muted)',
     textDecoration: 'none',
