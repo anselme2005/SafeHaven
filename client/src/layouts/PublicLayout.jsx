@@ -9,9 +9,16 @@ import { Link }                from 'react-router-dom';
 const PublicLayout = ({ children }) => {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const handleQuickExit = () => {
+ const handleQuickExit = () => {
     localStorage.clear();
     sessionStorage.clear();
+
+    // Overwrite the entire history stack before redirecting
+    const historyLength = window.history.length;
+    for (let i = 0; i < historyLength; i++) {
+      window.history.pushState(null, '', 'https://www.google.com');
+    }
+
     window.location.replace('https://www.google.com');
   };
 
@@ -56,13 +63,23 @@ const PublicLayout = ({ children }) => {
       let timer;
 
       const resetTimer = () => {
-        clearTimeout(timer);
-        timer = setTimeout(() => {
-          localStorage.clear();
-          sessionStorage.clear();
-          window.location.replace('https://www.google.com');
-        }, TIMEOUT_MS);
-      };
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        localStorage.clear();
+        sessionStorage.clear();
+
+        // Replace every history entry with Google so the back
+        // button has nowhere to go back to
+        // We push Google multiple times to overwrite the history stack
+        // then replace the current entry — this kills the back button
+        const historyLength = window.history.length;
+        for (let i = 0; i < historyLength; i++) {
+          window.history.pushState(null, '', 'https://www.google.com');
+        }
+
+        window.location.replace('https://www.google.com');
+      }, TIMEOUT_MS);
+    };
 
       //Events that count as activity
       const events = ['mousemove', 'mousedown', 'keypress', 'scroll', 'touchstart', 'click'];
