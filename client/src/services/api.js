@@ -47,4 +47,14 @@ api.interceptors.response.use(
   }
 );
 
+// --- Warm up the Render backend on app load ---
+// Render free tier spins down after inactivity.
+// This silent ping on app start wakes it up before
+// the user tries to submit a report or track a token.
+export const warmUpServer = () => {
+  api.get('/health').catch(() => {
+    // Silently ignore — this is just a wake-up call
+  });
+};
+
 export default api;

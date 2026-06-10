@@ -677,6 +677,7 @@ const ReportPage = () => {
                 </p>
                 <button
                   onClick={handleCopy}
+                   aria-label={copied ? 'Token copied' : 'Copy tracking token'}
                   style={{
                     backgroundColor: copied ? '#16A34A' : 'var(--color-primary)',
                     color:           'var(--color-white)',

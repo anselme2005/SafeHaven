@@ -174,7 +174,8 @@ const PublicLayout = ({ children }) => {
           ))}
 
             {/* Quick Exit */}
-            <button onClick={handleQuickExit} style={{
+            <button onClick={handleQuickExit}
+            aria-label="Quick exit — leave this site immediately" style={{
               backgroundColor: 'var(--color-danger)',
               color:           'var(--color-white)',
               border:          'none',
@@ -196,7 +197,8 @@ const PublicLayout = ({ children }) => {
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}
                className="mobile-nav">
 
-            <button onClick={handleQuickExit} style={{
+            <button onClick={handleQuickExit}
+            aria-label="Quick exit — leave this site immediately" style={{
               backgroundColor: 'var(--color-danger)',
               color:           'var(--color-white)',
               border:          'none',
@@ -210,7 +212,8 @@ const PublicLayout = ({ children }) => {
               ✕ Exit
             </button>
 
-            <button onClick={() => setMenuOpen(o => !o)} style={{
+            <button onClick={() => setMenuOpen(o => !o)} 
+            aria-label={menuOpen ? 'Close menu' : 'Open menu'} style={{
               background:   'none',
               border:       'none',
               cursor:       'pointer',

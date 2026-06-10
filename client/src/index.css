@@ -129,3 +129,9 @@ button:active:not(:disabled) {
   .admin-sidebar-mobile  { display: block !important; }
   .admin-hamburger       { display: flex  !important; }
 }
+
+/* ── Page loader spinner ── */
+@keyframes spin {
+  from { transform: rotate(0deg);   }
+  to   { transform: rotate(360deg); }
+}

@@ -180,6 +180,7 @@ const AdminLoginPage = () => {
               />
               <button
                 onClick={() => setShowPass(p => !p)}
+                aria-label={showPass ? 'Hide password' : 'Show password'}
                 style={{
                   position:   'absolute',
                   right:      '14px',
