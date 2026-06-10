@@ -5,7 +5,7 @@
 
 import { Link }     from 'react-router-dom';
 import PublicLayout from '../layouts/PublicLayout';
-import { FiShield, FiFileText, FiSearch, FiHeart } from 'react-icons/fi';
+import { FiShield, FiFileText, FiSearch, FiHeart } from '../utils/icons';
 
 const btnPrimary = {
   backgroundColor: 'var(--color-primary)',
@@ -34,7 +34,7 @@ const btnOutline = {
 };
 
 const btnSecondary = {
-  backgroundColor: 'var(--color-secondary)',
+ backgroundColor: '#0891B2',  // darker cyan — passes contrast ratio
   color:           'var(--color-white)',
   border:          'none',
   borderRadius:    '10px',

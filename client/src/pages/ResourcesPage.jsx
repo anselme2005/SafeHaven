@@ -8,7 +8,7 @@ import PublicLayout  from '../layouts/PublicLayout';
 import {
   FiPhone, FiGlobe, FiShield, FiHeart,
   FiAlertTriangle, FiChevronDown, FiChevronUp
-} from 'react-icons/fi';
+} from '../utils/icons';
 
 // ── Data ──────────────────────────────────────────────────────
 const EMERGENCY_HOTLINES = [

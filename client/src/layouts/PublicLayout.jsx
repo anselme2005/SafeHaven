@@ -30,7 +30,7 @@ const PublicLayout = ({ children }) => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
-  // --- Load Tawk.to only on public pages ---
+ // --- Load Tawk.to only on public pages ---
   // This runs once when the public layout mounts and cleans up
   // when navigating to the admin side (which uses AdminLayout)
   useEffect(() => {
@@ -41,6 +41,27 @@ const PublicLayout = ({ children }) => {
     script.charset = 'UTF-8';
     script.setAttribute('crossorigin', '*');
     document.body.appendChild(script);
+
+    // Add title to Tawk.to iframe for accessibility
+    // Tawk.to injects an iframe without a title attribute — this fixes it
+    // We try multiple times because Tawk.to injects its iframe
+    // asynchronously after the script loads
+    script.onload = () => {
+      const addIframeTitle = () => {
+        const iframes = document.querySelectorAll(
+          'iframe[src*="tawk.to"], iframe[id*="tawk"]'
+        );
+        iframes.forEach(iframe => {
+          if (!iframe.title) {
+            iframe.setAttribute('title', 'Live chat support');
+          }
+        });
+      };
+
+      addIframeTitle();
+      setTimeout(addIframeTitle, 2000);
+      setTimeout(addIframeTitle, 5000);
+    };
 
     // Cleanup — hide the widget when leaving public pages
     return () => {
@@ -272,7 +293,7 @@ const PublicLayout = ({ children }) => {
       }}>
         <p style={{ fontSize: '13px', color: 'var(--color-text-muted)' }}>
           SafeHaven — Your report is anonymous and secure.{' '}
-          <Link to="/about" style={{ color: 'var(--color-primary)', textDecoration: 'none' }}>
+          <Link to="/about" style={{ color: 'var(--color-primary)', textDecoration: 'underline' }}>
             Learn how it works
           </Link>
         </p>

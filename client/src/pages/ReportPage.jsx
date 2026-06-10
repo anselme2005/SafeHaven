@@ -12,7 +12,7 @@
 // ============================================================
 
 import { useState }     from 'react';
-import { FiChevronRight, FiChevronLeft, FiCopy, FiCheck, FiShield } from 'react-icons/fi';
+import { FiChevronRight, FiChevronLeft, FiCopy, FiCheck, FiShield } from '../utils/icons';
 import PublicLayout     from '../layouts/PublicLayout';
 import api              from '../services/api';
 import { ABUSE_TYPE_LABELS, URGENCY_LEVELS } from '../utils/constants';

@@ -5,7 +5,7 @@
 
 import { useNavigate } from 'react-router-dom';
 import PublicLayout    from '../layouts/PublicLayout';
-import { FiAlertTriangle, FiHome, FiFileText, FiSearch } from 'react-icons/fi';
+import { FiAlertTriangle, FiHome, FiFileText, FiSearch } from '../utils/icons';
 
 const NotFoundPage = () => {
   const navigate = useNavigate();

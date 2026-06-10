@@ -5,7 +5,7 @@
 
 import { useState, useEffect }  from 'react';
 import { useSearchParams }      from 'react-router-dom';
-import { FiSearch, FiClock, FiMessageSquare, FiShield } from 'react-icons/fi';
+import { FiSearch, FiClock, FiMessageSquare, FiShield } from '../utils/icons';
 import PublicLayout             from '../layouts/PublicLayout';
 import api                      from '../services/api';
 import { ABUSE_TYPE_LABELS }    from '../utils/constants';

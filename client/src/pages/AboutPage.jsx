@@ -4,7 +4,7 @@
 // ============================================================
 
 import PublicLayout from '../layouts/PublicLayout';
-import { FiShield, FiLock, FiEye, FiAlertTriangle, FiMessageCircle } from 'react-icons/fi';
+import { FiShield, FiLock, FiEye, FiAlertTriangle, FiMessageCircle } from '../utils/icons';
 
 const Section = ({ icon, title, children }) => (
   <div style={{
