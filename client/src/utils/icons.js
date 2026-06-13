@@ -1,10 +1,9 @@
 // ============================================================
 // src/utils/icons.js
-// Centralized icon exports — only imports what we actually use
+// Centralized icon exports — single import point for all icons
 // ============================================================
-// Importing from react-icons/fi loads the ENTIRE icon library.
-// Re-exporting from here means we only reference what we need,
-// which helps bundlers tree-shake unused icons.
+// All icons are imported from one place so if we ever swap
+// the icon library we only change this one file.
 // ============================================================
 
 export {

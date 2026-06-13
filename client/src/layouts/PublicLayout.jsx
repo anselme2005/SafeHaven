@@ -12,13 +12,8 @@ const PublicLayout = ({ children }) => {
  const handleQuickExit = () => {
     localStorage.clear();
     sessionStorage.clear();
-
-    // Overwrite the entire history stack before redirecting
-    const historyLength = window.history.length;
-    for (let i = 0; i < historyLength; i++) {
-      window.history.pushState(null, '', 'https://www.google.com');
-    }
-
+    // replace() removes SafeHaven from history so the back
+    // button cannot return to the site
     window.location.replace('https://www.google.com');
   };
 
@@ -88,16 +83,6 @@ const PublicLayout = ({ children }) => {
       timer = setTimeout(() => {
         localStorage.clear();
         sessionStorage.clear();
-
-        // Replace every history entry with Google so the back
-        // button has nowhere to go back to
-        // We push Google multiple times to overwrite the history stack
-        // then replace the current entry — this kills the back button
-        const historyLength = window.history.length;
-        for (let i = 0; i < historyLength; i++) {
-          window.history.pushState(null, '', 'https://www.google.com');
-        }
-
         window.location.replace('https://www.google.com');
       }, TIMEOUT_MS);
     };
