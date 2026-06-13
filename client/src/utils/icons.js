@@ -34,5 +34,6 @@ export {
   FiGlobe,
   FiChevronDown,
   FiChevronUp,
-  FiMessageCircle
+  FiMessageCircle,
+  FiHome
 } from 'react-icons/fi';
