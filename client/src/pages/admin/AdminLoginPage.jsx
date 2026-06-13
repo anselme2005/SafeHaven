@@ -5,7 +5,7 @@
 
 import { useState }      from 'react';
 import { useNavigate }   from 'react-router-dom';
-import { FiShield, FiMail, FiLock, FiEye, FiEyeOff } from '../utils/icons';
+import { FiShield, FiMail, FiLock, FiEye, FiEyeOff } from '../../utils/icons';
 import { useAuth }       from '../../context/AuthContext';
 import api               from '../../services/api';
 

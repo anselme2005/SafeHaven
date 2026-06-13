@@ -8,7 +8,7 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth }            from '../context/AuthContext';
 import {
   FiGrid, FiFileText, FiLogOut, FiMenu, FiX, FiShield
-} from 'react-icons/fi';
+} from '../utils/icons';
 import useInactivityTimeout from '../hooks/useInactivityTimeout';
 
 const AdminLayout = ({ children }) => {

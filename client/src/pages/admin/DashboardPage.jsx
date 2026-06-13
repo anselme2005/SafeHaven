@@ -5,7 +5,7 @@
 
 import { useState, useEffect } from 'react';
 import { useNavigate }         from 'react-router-dom';
-import { FiFileText, FiClock, FiAlertTriangle, FiCheckCircle, FiEye } from '../utils/icons';
+import { FiFileText, FiClock, FiAlertTriangle, FiCheckCircle, FiEye } from '../../utils/icons';
 import AdminLayout             from '../../layouts/AdminLayout';
 import api                     from '../../services/api';
 import { ABUSE_TYPE_LABELS }   from '../../utils/constants';

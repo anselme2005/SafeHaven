@@ -8,7 +8,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import {
   FiArrowLeft, FiAlertTriangle, FiCheckCircle,
   FiClock, FiRefreshCw, FiSend
-} from '../utils/icons';
+} from '../../utils/icons';
 import AdminLayout           from '../../layouts/AdminLayout';
 import api                   from '../../services/api';
 import { ABUSE_TYPE_LABELS } from '../../utils/constants';
